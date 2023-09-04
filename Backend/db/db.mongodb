@@ -1,0 +1,7 @@
+use("loginReact");
+db.createCollection("users");
+db.users.insertOne({
+    username: "Ao Kuang",
+    email: "aokuang@gmail.com",
+    password:""
+})
