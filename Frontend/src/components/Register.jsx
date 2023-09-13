@@ -7,13 +7,15 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //FETCH CONFIG METHODS
   const config = {
     headers: new Headers({
       "Content-Type": "application/json",
     }),
   };
 
-  const ApiR = async (event) => {
+  //API REQUEST
+  const Fetch = async (event) => {
     event.preventDefault();
 
     config.method = "POST";
@@ -21,21 +23,21 @@ export default function Register() {
 
     try {
       let result = await (
-        await fetch("htpp://127.16.16.16:4560/signUp", config)
+        await fetch("http://127.16.16.16:4560/auth/signUp", config)
       ).json();
 
-      if (ress.status == 200) {
-        localStorage.setItem("Auth", result.auth);
+      if (result.status === 200) {
+        localStorage.setItem("token", result.token);
         redirect("/home", {
           state: {
             user: {
-              username: ress.data.username,
-              email: ress.data.email,
+              username: result.data.username,
+              email: result.data.email,
             },
           },
         });
       } else {
-        console.log("Ha ocurrido un error al registrarse");
+        alert("Ha ocurrido un error al registrarse");
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +51,7 @@ export default function Register() {
           <h1 className="text-3xl font-semibold text-center text-green-600 underline">
             Sign Up
           </h1>
-          <form className="mt-6" onSubmit={ApiR} id="formSingUp">
+          <form className="mt-6" onSubmit={Fetch} id="formSingUp">
             <div className="mb-2">
               <label className="block text-sm font-semibold dark:text-gray-800">
                 Username

@@ -8,7 +8,7 @@ import B1 from "./src/v1/app.js";
 const app = Express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DIST_DIRECTORY = path.join(__dirname, "../../Frontend/dist");
+const DIST_DIRECTORY = path.join(__dirname, "../Frontend/dist");
 
 
 app.use(cors());
@@ -19,5 +19,5 @@ app.use(Express.static(DIST_DIRECTORY));
 
 let config = JSON.parse(process.env.Server);
 app.listen(config, () => {
-  console.log(`htpp://${config.hostname}:${config.port}`);
+  console.log(`http://${config.hostname}:${config.port}`);
 });

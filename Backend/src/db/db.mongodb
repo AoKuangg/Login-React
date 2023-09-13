@@ -30,3 +30,8 @@ db.usuarios.insertOne({
   email: "camilo@gmail.com",
   password: "sopasdesapos",
 });
+
+use("loginReact");
+db.usuarios.find({
+  email: "camilo@gmail.com",
+})

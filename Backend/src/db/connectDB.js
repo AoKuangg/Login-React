@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { MongoClient } from "mongodb";
 
-const URI = `mongodb+srv://AoKuang:MilPesosBro@cluster0.j4ctnar.mongodb.net/`;
+const URI = `mongodb+srv://AoKuang:MilPesosBro@cluster0.j4ctnar.mongodb.net/loginReact`;
 
 export async function connDB() {
   const client = new MongoClient(URI);

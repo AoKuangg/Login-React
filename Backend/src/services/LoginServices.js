@@ -9,7 +9,6 @@ export const SingIn = async (info) => {
     .toArray();
 
   if (!resultado.length) return [];
-
   return [
     {
       _id: resultado[0]._id,
