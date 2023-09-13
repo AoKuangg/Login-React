@@ -1,0 +1,32 @@
+use("loginReact");
+db.createCollection("usuarios", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["username", "email", "password"],
+      properties: {
+        username: {
+          bsonType: "string",
+          pattern: "^[a-zA-Z0-9 ]+$",
+          maxLength: 20,
+          description: "username is required",
+        },
+        email: {
+          bsonType: "string",
+          description: "email is required",
+        },
+        password: {
+          bsonType: "string",
+          maxLength: 20,
+          description: "password is required",
+        },
+      },
+    },
+  },
+});
+use("loginReact");
+db.usuarios.insertOne({
+  username: "AoKuang",
+  email: "camilo@gmail.com",
+  password: "sopasdesapos",
+});
