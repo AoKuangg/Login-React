@@ -1,7 +1,7 @@
 import Express from "express";
 import cors from "cors";
 import "dotenv/config";
-import LoginApp from "./api/app";
+import LoginApp from "./api/app.js";
 
 const app = Express();
 
