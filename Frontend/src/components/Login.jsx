@@ -22,7 +22,7 @@ export default function LogIn() {
 
     try {
       let result = await (
-        (await fetch('http://127.16.16.16:4560/auth/signIn', config))
+        (await fetch('http://192.168.129.72:5141/auth/signIn', config))
       ).json();
 
       //IF USER NOT FOUND

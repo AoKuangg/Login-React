@@ -23,7 +23,7 @@ export default function Register() {
 
     try {
       let result = await (
-        await fetch("http://127.16.16.16:4560/auth/signUp", config)
+        await fetch("http://192.168.129.72:5141/auth/signUp", config)
       ).json();
 
       if (result.status === 200) {
