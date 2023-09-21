@@ -27,7 +27,7 @@ export default function Register() {
       ).json();
 
       if (result.status === 200) {
-        localStorage.setItem("token", result.token);
+        localStorage.setItem("token", result.auth);
         redirect("/home", {
           state: {
             user: {

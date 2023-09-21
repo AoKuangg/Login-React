@@ -27,7 +27,7 @@ export default function LogIn() {
 
       //IF USER NOT FOUND
       if (result.status == 200) {
-        localStorage.setItem("token", result.token);
+        localStorage.setItem("token", result.auth);
         redirect("/home", {
           state: {
             user: {

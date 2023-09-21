@@ -33,10 +33,10 @@ export const SingIn = async (req, res) => {
 export const singUp = async (req, res) => {
   const { username, email, password } = req.body;
   try {
-    let user = await authServices.signUp(req.body);
+    let user = await LogInservices.SignUp(req.body);
 
     if (user) {
-      let data = await authServices.login({ email, password });
+      let data = await LogInservices.SingIn({ email, password });
       let jwt = await GenerateToken(data);
       res.status(200).json({
         status: 200,
@@ -48,6 +48,7 @@ export const singUp = async (req, res) => {
       res.status(409).json({ status: 409, message: "user already exists" });
     }
   } catch (error) {
+    console.log(error);
     res.status(500).send({
       status: 500,
       errorInfo: {
